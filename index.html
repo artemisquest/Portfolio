@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#070b17;
+      color:white;
+      padding:40px;
+      overflow-x:hidden;
+    }
+
+    .container{
+      max-width:1400px;
+      margin:auto;
+      display:grid;
+      gap:25px;
+    }
+
+    .card{
+      background:#0d1427;
+      border-radius:25px;
+      padding:35px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:
+      0 0 30px rgba(0,140,255,0.08),
+      inset 0 0 20px rgba(255,255,255,0.02);
+    }
+
+    .hero{
+      min-height:420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero-content{
+      text-align:center;
+      max-width:700px;
+    }
+
+    .profile{
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      overflow:hidden;
+      margin:auto;
+      margin-bottom:20px;
+      border:4px solid #00aaff;
+      box-shadow:0 0 25px #00aaff;
+    }
+
+    .profile img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    h1{
+      font-size:4rem;
+      line-height:1;
+      margin-bottom:10px;
+    }
+
+    h1 span{
+      color:#00aaff;
+    }
+
+    .subtitle{
+      font-size:1.8rem;
+      color:#8aa2c8;
+      margin-bottom:20px;
+    }
+
+    .description{
+      color:#b9c5d8;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border-radius:50px;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:#00aaff;
+      color:white;
+      box-shadow:0 0 20px rgba(0,170,255,0.5);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.2);
+      color:white;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:25px;
+    }
+
+    .sidebar{
+      position:absolute;
+      left:20px;
+      top:50%;
+      transform:translateY(-50%);
+      width:65px;
+      background:rgba(255,255,255,0.03);
+      border-radius:40px;
+      padding:15px 0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:20px;
+      box-shadow:0 0 25px rgba(0,170,255,0.15);
+    }
+
+    .icon{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      background:#101b31;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#00aaff;
+      font-size:18px;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .icon:hover{
+      background:#00aaff;
+      color:white;
+      box-shadow:0 0 15px #00aaff;
+    }
+
+    .section-title{
+      font-size:2rem;
+      margin-bottom:20px;
+      color:#00aaff;
+    }
+
+    .skills{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .skill span{
+      display:block;
+      margin-bottom:8px;
+      color:#d5e0f0;
+    }
+
+    .bar{
+      width:100%;
+      height:10px;
+      background:#15233d;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .fill{
+      height:100%;
+      border-radius:20px;
+      background:linear-gradient(90deg,#00aaff,#005eff);
+    }
+
+    .portfolio{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .project{
+      background:#10192d;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project img{
+      width:100%;
+      display:block;
+    }
+
+    .project:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px rgba(0,170,255,0.2);
+    }
+
+    .education-item,
+    .language-item{
+      background:#10192d;
+      padding:18px;
+      border-radius:15px;
+      margin-bottom:15px;
+    }
+
+    .language-item h4{
+      margin-bottom:10px;
+    }
+
+    @media(max-width:768px){
+
+      body{
+        padding:20px;
+      }
+
+      h1{
+        font-size:2.5rem;
+      }
+
+      .subtitle{
+        font-size:1.2rem;
+      }
+
+      .sidebar{
+        display:none;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="card hero">
+
+      <div class="sidebar">
+        <div class="icon">🏠</div>
+        <div class="icon">👤</div>
+        <div class="icon">💼</div>
+        <div class="icon">📁</div>
+        <div class="icon">✉️</div>
+      </div>
+
+      <div class="hero-content">
+
+        <div class="profile">
+          <img src="/images/fo.png" alt="">
+        </div>
+
+        <h1>Oi, Eu sou o <span>Valdimiro</span></h1>
+
+        <div class="subtitle">
+          Eu sou um programador web
+        </div>
+
+        <p class="description">
+        Eu sou responsavel por criar experiências web
+          e tecnologias modernas
+        </p>
+
+        <div class="buttons">
+          <a href="/index.html" class="btn btn-primary">
+            Ver meus Work
+        </a>
+          <button class="btn btn-outline">Baixar CV</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <div class="grid">
+
+      <!-- Hibilidades -->
+      <section class="card">
+
+        
+
+        <h2 class="section-title">Minhas Habilidades</h2>
+
+        <div class="skills">
+
+          <div class="skill">
+            <span>HTML</span>
+            <div class="bar">
+              <div class="fill" style="width:95%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <span>CSS</span>
+            <div class="bar">
+              <div class="fill" style="width:85%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <span>Python</span>
+            <div class="bar">
+              <div class="fill" style="width:80%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <span>JAVA</span>
+            <div class="bar">
+              <div class="fill" style="width:90%"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="card">
+
+
+        <h2 class="section-title">Meu Portifolio</h2>
+
+        <div class="portfolio">
+
+          <div class="project">
+            <img src="https://picsum.photos/400/250?1">
+          </div>
+
+          <div class="project">
+            <img src="https://picsum.photos/400/250?2">
+          </div>
+
+          <div class="project">
+            <img src="https://picsum.photos/400/250?3">
+          </div>
+
+          <div class="project">
+            <img src="https://picsum.photos/400/250?4">
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- EDUCAÇÃO -->
+      <section class="card">
+
+
+        <h2 class="section-title">Educação</h2>
+
+        <div class="education-item">
+          <h3>Informática</h3>
+          <p>2020 - 2026</p>
+        </div>
+
+        <div class="education-item">
+          <h3>Desenvolvedor Web</h3>
+          <p>Certificado comprovado</p>
+        </div>
+
+      </section>
+
+    
+
+    </div>
+
+  </div>
+
+</body>
+</html>
